@@ -1,7 +1,13 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD;
 
 const connectToDatabase = () => {
-    const MONGODB_URI = 'mongodb+srv://alex4422:codeforinterview@mern-todo.74otdyt.mongodb.net/mern-todo';
+    const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@mern-todo.74otdyt.mongodb.net/mern-todo`;
 
     mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
